@@ -1,8 +1,7 @@
 const sequelize = require('../server').sequelize;
-const Sequelize = require('sequelize');
+const Sequelize = require('../server').Sequelize;
 
-const User = function (sequelize, Sequelize) {
-    return sequelize.define('users', {
+const User = sequelize.define('users', {
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
@@ -27,12 +26,11 @@ const User = function (sequelize, Sequelize) {
             type: Sequelize.DATE,
             defaudefaultValue: Sequelize.NOW
         }
-    })
-};
+    });
 
-// sequelize.sync()
-//     .then(() => {
-//         console.log('User db and user table have been created')
-//     });
+sequelize.sync()
+    .then(() => {
+        console.log('User db and user table have been created')
+    });
 
 module.exports = User;
