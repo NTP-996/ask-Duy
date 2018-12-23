@@ -1,6 +1,7 @@
-const sequelize = require('../server').sequelize;
-const Sequelize = require('../server').Sequelize;
-
+const serverDB = require('../server');
+const sequelize = serverDB.sequelize;
+const Sequelize = serverDB.Sequelize;
+debugger;
 const User = sequelize.define('users', {
         id: {
             type: Sequelize.INTEGER,
